@@ -1,0 +1,87 @@
+<div class="container">
+  <h3>Tambah GH</h3>
+
+  <div class="form-group">
+    <label for="nama">Nama</label>
+    <input
+      type="text"
+      class="form-control"
+      id="nama"
+      [(ngModel)]="data.nama"
+      placeholder="Masukkan Nama"
+    />
+  </div>
+  <div class="form-group">
+    <label for="alamat">Alamat</label>
+    <input
+      type="text"
+      class="form-control"
+      id="alamat"
+      [(ngModel)]="data.alamat"
+      placeholder="Masukkan Alamat"
+    />
+  </div>
+  <div class="form-group">
+    <label for="region">Region</label>
+    <select class="browser-default custom-select" [(ngModel)]="data.region">
+      <option>Kalimantan</option>
+      <option>Jawa</option>
+      <option>Sumatra</option>
+      <option>Kepulauan Nusa Tenggara</option>
+      <option>Maluku</option>
+      <option>Papua</option>
+      <option>Sulawesi</option>
+      <option>DKI Jakarta</option>
+      <option>DIY</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="pemilik">Pemilik</label>
+    <input
+      type="text"
+      class="form-control"
+      id="pemilik"
+      [(ngModel)]="data.pemilik"
+      placeholder="Masukkan Pemilik"
+    />
+    <div class="form-group">
+      <label for="open">Open</label>
+      <input
+        type="time"
+        class="form-control"
+        id="open"
+        [(ngModel)]="data.open"
+        placeholder="Masukkan Open"
+      />
+    </div>
+    <div class="form-group">
+      <label for="regristasi">Regristasi</label>
+      <input
+        type="date"
+        class="form-control"
+        id="regristasi"
+        [(ngModel)]="data.regristasi"
+        placeholder="Masukkan Regristasi"
+      />
+      <div class="form-group">
+        <label for="jumlahslot">Jumlah Slot</label>
+        <input
+          type="number"
+          class="form-control"
+          id="jumlahslot"
+          [(ngModel)]="data.jumlahslot"
+          placeholder="Masukkan Jumlah Slot"
+        />
+      </div>
+      <button
+        type="submit"
+        class="btn btn-primary"
+        (click)="submitForm()"
+        (click)="('closeDialog()')"
+        [routerLink]="['gamehouse']"
+      >
+        Tambah
+      </button>
+    </div>
+  </div>
+</div>

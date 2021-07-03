@@ -1,0 +1,52 @@
+<div class="container" style="text-align: center">
+  <h3>Data Game House</h3>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Nama</th>
+        <th scope="col">Alamat</th>
+        <th scope="col">Region</th>
+        <th scope="col">Pemiilik</th>
+        <th scope="col">Open</th>
+        <th scope="col">Regristasi</th>
+        <th scope="col">Jumlah Slot</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let ghs of data; let i = index">
+        <td>{{ ghs.id }}</td>
+        <td>{{ ghs.nama }}</td>
+        <td>{{ ghs.alamat }}</td>
+        <td>{{ ghs.region }}</td>
+        <td>{{ ghs.pemilik }}</td>
+        <td>{{ ghs.open }}</td>
+        <td>{{ ghs.regristasi }}</td>
+        <td>{{ ghs.jumlahslot }}</td>
+        <td style="display: flex">
+          <button
+            type="button"
+            class="btn btn-warning btn-sm"
+            [routerLink]="['/edit-gamehouse', ghs.id]"
+          >
+            Edit
+          </button>
+          <button
+            type="button"
+            class="btn btn-danger btn-sm ml-1"
+            (click)="delete(ghs.id)"
+          >
+            Hapus
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <button type="button" class="btn btn-success" (click)="tambahGHS(id, data)">
+    Tambah Game House
+  </button>
+  <button type="button" class="btn btn-danger" [routerLink]="['/login']">
+    Logout
+  </button>
+</div>
