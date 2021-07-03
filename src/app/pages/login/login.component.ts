@@ -25,6 +25,6 @@ export class LoginComponent implements OnInit {
   }
 
   daftar() {
-    this.router.navigate(['registrasi']);
+    this.router.navigate(['regristasi']);
   }
 }

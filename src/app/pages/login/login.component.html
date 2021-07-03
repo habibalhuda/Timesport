@@ -8,25 +8,25 @@
       alt="Card image cap"
     />
     <div class="form-group">
-      <label for="nama">Nama</label>
+      <label for="email">Email address</label>
       <input
-        type="nama"
-        name="nama"
-        id="nama"
-        [(ngModel)]="data.nama"
+        type="email"
+        name="email"
+        id="email"
+        [(ngModel)]="data.username"
         class="form-control"
-        placeholder="Enter name"
+        placeholder="Enter email"
       />
     </div>
     <div class="form-group">
-      <label for="nim">Nim</label>
+      <label for="password">Password</label>
       <input
-        type="nim"
-        name="nim"
-        id="nim"
-        [(ngModel)]="data.nim"
+        type="password"
+        name="password"
+        id="password"
+        [(ngModel)]="data.password"
         class="form-control"
-        placeholder="nim"
+        placeholder="password"
       />
     </div>
     <button type="submit" class="btn btn-primary" (click)="login()">

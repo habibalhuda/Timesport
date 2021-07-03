@@ -1,4 +1,4 @@
 export class Login {
-  nim?: number;
-  nama?: string;
+  username?: number;
+  password?: string;
 }
