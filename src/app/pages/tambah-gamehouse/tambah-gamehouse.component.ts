@@ -28,5 +28,6 @@ export class TambahGamehouseComponent implements OnInit {
       console.log(res);
       alert('Berhasil Menambahkan Data Mahasiswa');
     });
+    this.router.navigate(['gamehouse']);
   }
 }

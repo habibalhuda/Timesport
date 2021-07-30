@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
-import { GHS } from 'src/app/models/GHS';
 import { GamehouseService } from 'src/app/services/gamehouse.service';
 import { TambahGamehouseComponent } from '../tambah-gamehouse/tambah-gamehouse.component';
 
@@ -11,7 +10,6 @@ import { TambahGamehouseComponent } from '../tambah-gamehouse/tambah-gamehouse.c
   styleUrls: ['./gamehouse.component.css'],
 })
 export class GamehouseComponent implements OnInit {
-
   data!: any;
   id!: number;
 
@@ -41,6 +39,7 @@ export class GamehouseComponent implements OnInit {
     const dialogRef = this.dialog.open(TambahGamehouseComponent, {
       width: '450px',
       data: data,
+      id,
     });
     dialogRef.afterClosed().subscribe((res) => {
       this.data = res;
@@ -57,7 +56,7 @@ export class GamehouseComponent implements OnInit {
     });
   }
 
-  delete(id:any) {
+  delete(id: any) {
     //hapus data mahasiswa sesuai nim
     var r = confirm('Anda yakin ingin menghapus data ini secara permanen ?');
     if (r == true) {

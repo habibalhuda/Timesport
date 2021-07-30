@@ -43,7 +43,11 @@
     </tbody>
   </table>
 
-  <button type="button" class="btn btn-success" (click)="tambahGHS(id, data)">
+  <button
+    type="button"
+    class="btn btn-success"
+    [routerLink]="['/tambah-gamehouse', data]"
+  >
     Tambah Game House
   </button>
   <button type="button" class="btn btn-danger" [routerLink]="['/login']">
