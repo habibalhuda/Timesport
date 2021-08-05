@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -7,15 +9,35 @@ import { Router } from '@angular/router';
   styleUrls: ['./regristasi.component.css'],
 })
 export class RegristasiComponent implements OnInit {
-  constructor(private router: Router) {}
+  user: any = {};
+  constructor(private router: Router, public auth: AngularFireAuth) {}
 
   ngOnInit(): void {}
 
-  login() {
-    this.router.navigate(['login']);
-  }
+  hide: boolean = true;
 
-  daftar() {
-    this.router.navigate(['registrasi']);
+  // form validation
+  email = new FormControl('', [Validators.required, Validators.email]);
+  password = new FormControl('', [
+    Validators.minLength(6),
+    Validators.required,
+  ]);
+
+  //register
+  loading!: boolean;
+  register(user: any) {
+    this.loading = true;
+    alert('Regristasi berhasil');
+    this.auth
+      .createUserWithEmailAndPassword(user.email, user.password)
+      .then((res) => {
+        this.loading = false;
+        alert('Regristrasi berhasil');
+        this.router.navigate(['auth/login']);
+      })
+      .catch((err) => {
+        this.loading = false;
+        alert('Ada masalah..');
+      });
   }
 }

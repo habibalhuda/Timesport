@@ -1,7 +1,7 @@
 import {
   HttpClient,
   HttpErrorResponse,
-  HttpHeaders
+  HttpHeaders,
 } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
@@ -20,6 +20,8 @@ export class GamehouseService {
   httpOptions = {
     headers: new HttpHeaders({
       responseType: 'json',
+      'Access-Control-Allow-Origin': '*',
+      'Content-type': 'application/json',
     }),
   };
 
@@ -50,13 +52,13 @@ export class GamehouseService {
   }
 
   // mengambil data detail GHS sesuai nim
-  detailGHS(id:any): Observable<GHS> {
+  detailGHS(id: any): Observable<GHS> {
     return this.http
       .get<GHS>(`{this.api}/find"}/${id}`)
       .pipe(retry(2), catchError(this.handleError));
   }
 
-  create(data:any): Observable<GHS> {
+  create(data: any): Observable<GHS> {
     return this.http.post<GHS>(
       this.api + '/create',
       JSON.stringify(data),
@@ -76,7 +78,7 @@ export class GamehouseService {
       .pipe(retry(2), catchError(this.handleError));
   }
 
-  login(item:any): Observable<Login> {
+  login(item: any): Observable<Login> {
     return this.http
       .post<Login>(
         this.api + '/auth/login',

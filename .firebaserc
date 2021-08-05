@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "gamehouse-a7c2e": {
+      "hosting": {
+        "GHS": [
+          "gamehouse-a7c2e"
+        ]
+      }
+    }
+  }
+}

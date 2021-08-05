@@ -1,4 +1,6 @@
-<div class="card text-center justify-content-center" style="width: 30rem">
+<div
+  class="card text-center align-content-center justify-content-center"
+>
   <div class="card-header">Halaman Login</div>
   <div class="card-body">
     <img
@@ -7,35 +9,53 @@
       src="https://image.flaticon.com/icons/svg/295/295128.svg"
       alt="Card image cap"
     />
-    <div class="form-group">
+    <div class="form-group col-4 " id="tengah">
       <label for="email">Email address</label>
       <input
         type="email"
         name="email"
         id="email"
-        [(ngModel)]="data.username"
+        [(ngModel)]="user.email"
         class="form-control"
+        [formControl]="email"
         placeholder="Enter email"
+        required
       />
+      <mat-error *ngIf="email.hasError('required')"
+        >Email Harus diisi</mat-error
+      >
+      <mat-error *ngIf="email.hasError('email')">Format email salah</mat-error>
     </div>
-    <div class="form-group">
+    <div class="form-group col-4" id="tengah">
       <label for="password">Password</label>
       <input
         type="password"
         name="password"
         id="password"
-        [(ngModel)]="data.password"
         class="form-control"
+        [(ngModel)]="user.password"
+        [formControl]="password"
+        [type]="hide ? 'password' : 'text'"
         placeholder="password"
+        required
       />
+      <button mat-icon-button matSuffix (click)="hide = !hide">
+        <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+      </button>
+      <mat-error *ngIf="password.hasError('required')"
+        >Password Harus diisi</mat-error
+      >
+      <mat-error *ngIf="password.hasError('minlength')"
+        >Password harus diisi lebih dari 6 karakter</mat-error
+      >
     </div>
-    <button type="submit" class="btn btn-primary" (click)="login()">
+    <button type="submit" class="btn btn-primary" (click)="login(user)">
       Login
     </button>
     <div class="form-group form-check">
       <label class="form-check-label" for="exampleCheck1"
         >Belum punya akun?
-        <a style="color: rgb(47, 120, 255)" (click)="daftar()"
+        <a style="color: rgb(47, 120, 255)" routerLink="/regristasi"
           >daftar disini</a
         ></label
       >
